@@ -1,0 +1,78 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  min-width: 1000px;
+  background: none;
+  background-color: #1e2d3b !important;
+}
+
+/* header */
+
+header{
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 10px;
+  background-color: #2e3a46;
+}
+
+header img{
+  height: 100%;
+}
+
+/* /header */
+
+/* main */
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+}
+
+main .wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 60%;
+
+ /*  background-color: black; */
+}
+
+/* disco singolo ripetuto */
+
+main .row{
+  height: 500px;
+  width: 80%;
+}
+
+main .row .disco{
+  min-height: 400px;
+  padding: 10px;
+}
+
+main .row .disco>div{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column;
+  background-color: #2e3a46;
+  min-height: inherit;
+}
+
+main .row .disco img{
+  margin: 10px;
+  max-width: 150px;
+}
+
+main .row .disco span:last-child{
+  color: white;
+}
