@@ -1,14 +1,37 @@
 const app = new Vue({
-  el : '#app',
+  el: '#app',
   data:{
-    dischi:[]
+    albums:[],
+    genres:[],
+    authors:[],
+    autoreDaCercare: 'all',
+    genereDaCercare: 'all',
+    apiURL: 'http://localhost/php-intro/php-ajax-dischi/assets/data/api.php'
+
   },
-  mounted(){
-    axios.get('http://localhost/php-intro/php-ajax-dischi/assets/data/api.php').then(res =>{
-      console.log(res.data);
-      this.dischi=res.data;
-    }).catch(err=>{
-      console.log(err);
-    })
+  methods:{
+
+    getAPI(){
+      axios.get(this.apiURL,{
+        params:{
+          genre: this.genereDaCercare,
+          author: this.autoreDaCercare
+        }
+      })
+      .then(res => {
+        this.albums = res.data.albums;
+        this.genres = res.data.genres;
+        this.authors = res.data.authors;
+        console.log(this.genres);
+        console.log(this.albums);
+      }).catch(err => {
+        console.log(err);
+      })
+    },
+  },
+  created(){
+    this.getAPI();
+    console.log('◄ chiamata api ►')
   }
-})
+
+});

@@ -16,22 +16,48 @@
   <div id="app">
     <header>
       <img src="assets/img/51rttY7a+9L.png" alt="">
-      <select name="" id="">
-        <option value="default">Seleziona un genere</option>
-        <option value="rock">Rock</option>
+      <select 
+      v-model="genereDaCercare"
+      @change="getAPI"
+      name="" id="">
+        <option value="all">Seleziona un genere</option>
+        <option 
+        v-for="genre in genres"
+        :value="genre">{{genre}}</option>
       </select>
+      <select 
+      v-model="autoreDaCercare"
+      @change="getAPI"
+      name="" id="">
+        <option value="all">Seleziona un autore</option>
+        <option 
+        v-for="author in authors"
+        :value="author">{{author}}</option>
+      </select>
+
+      <!-- 
+         <select 
+      v-model="autoreDaCercare"
+      @change="getAPI"
+      name="" id="">
+        <option value="all">Seleziona un autore</option>
+        <option 
+        v-for="author in authors"
+        :value="author">{{author}}</option>
+      </select>
+       -->
     </header>
     <main>
       <div class="wrapper">
         <div class="row gx-5 justify-content-center align-items-center">
           <!-- ciclo for che serve per stampare i dischi -->
           <div 
-          v-for="disco in dischi"
+          v-for="album in albums"
           class="disco col-4 col-lg-4">
             <div>
-              <img class="img-fluid d-block" :src="disco.poster" alt="">
-              <span>{{disco.title}}</span>
-              <span>{{disco.year}}</span>
+              <img class="img-fluid d-block" :src="album.poster" alt="">
+              <span>{{album.title}}</span>
+              <span>{{album.year}}</span>
             </div>
           </div>
         
