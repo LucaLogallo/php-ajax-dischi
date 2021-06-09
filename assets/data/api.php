@@ -79,9 +79,9 @@ $ordinato = array_sort($albums, 'author', SORT_DESC);
 
 
 $response = [
-  /* 'albums' => $albums,
+  'albums' => $albums,
   'genres' => $genres,
-  'authors' => $authors, */
+  'authors' => $authors,
   'ordinato' => $ordinato
 ];
 
